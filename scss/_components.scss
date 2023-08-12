@@ -1,0 +1,238 @@
+/*Buttons*/
+.btn {
+  padding: 1rem 2rem;
+  @include media(medium){
+    padding: 0.5rem 1rem;
+  }
+  background-color: $light-color;
+  color: $primary-color;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  letter-spacing: 1px;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $light-color;
+  }
+  &-first {
+    background-color: $primary-color;
+    color: $light-color;
+    &:hover {
+      background-color: $light-color;
+      color: $primary-color;
+    }
+  }
+}
+
+/*Badges*/
+
+.badge {
+  border: none;
+  padding: 0.6rem 2rem;
+  font-size: 1.7rem;
+  color: $light-color;
+  background-color: $primary-color;
+  margin: 4rem 4rem;
+  letter-spacing: 2px;
+
+  &-tech {
+    background-color: $date-color;
+  }
+
+  &-game {
+    background-color: $comment-color;
+  }
+}
+
+/*RATING*/
+
+.rating {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 1rem;
+  left: 1rem;
+  background-color: $light-color;
+  opacity: 0;
+  z-index: 1;
+  line-height: 3rem;
+  font-size: 1.5rem;
+  font-family: $primary-font;
+  color: $primary-color;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+
+/*REVIEW*/
+.review {
+  padding: 5rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin-left: 10rem;
+  border-left: 1px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
+  transform: skew(-25deg);
+
+  @include media(large) {
+    transform:skew(0deg);
+    border: none;
+    margin-left: 1rem;
+  }
+
+  & > * {
+    transform: skew(25deg);
+    @include media(large) {
+      transform:skew(0deg);
+    }
+  }
+
+  &-tags {
+    transform: skew(25deg);
+    font-size: 1.5rem;
+    @include media(large) {
+      transform:skew(0deg);
+       
+    }
+    margin-top: 1rem;
+    color: $light-color;
+  }
+
+  &-text {
+    margin: 1rem 0;
+    line-height: 2.5rem;
+  }
+
+  &-user {
+    display: flex;
+    align-items: center;
+     
+    @include media(small){
+      flex-direction: column;
+    }
+
+    img {
+      width: 8rem;
+      margin-right: 2rem;
+      border-radius: 50%;
+    }
+
+    &-detail {
+      font-family: $primary-font;
+      margin-right: 2rem;
+
+      .review-user-name {
+        color: $primary-color;
+      }
+      .review-user-date {
+        color: $date-color;
+      }
+    }
+
+    &-platform {
+      :not(:first-child) {
+        color: $primary-color;
+      }
+      @include media(small){
+        flex-direction: column;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .fab {
+        margin: 0 1rem;
+      }
+    }
+
+    &-rating {
+      margin-left: auto;
+      @include media(small){
+        margin-left: 0; 
+        margin-top: 2rem;
+      }
+      
+      .checked{
+        color: $primary-color;
+      }
+       
+    }
+  }
+}
+
+/*CARDS*/
+
+.card{
+
+ 
+  height: 40rem;
+  perspective: 1000px;
+  @include media(large){
+             
+    height: 35rem;
+  }
+  @include media(medium){
+             
+    height: 30rem;
+  }
+
+  @include media(small){
+             
+    height: 20rem;
+  }
+  &-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    
+  }
+
+  .card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: $general-transation;
+  }
+  .card-front{
+    background-color: $primary-color;
+  }
+  .card-back{
+    background-color: $secondary-color;
+    transform: rotateY(180deg);
+    display: table;
+
+    &-content{
+      display: table-cell;
+      vertical-align: middle;
+
+
+      p {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      
+
+      }
+      a{
+        transition: $general-transation;
+        &:hover{
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  &:hover .card-front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .card-back {
+      transform: none;
+  }
+}
+
